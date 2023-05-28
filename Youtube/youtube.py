@@ -26,12 +26,11 @@ def plist(pl_name, pl_url):
     time.sleep(10)
     driver.close()
     print('Items to be downloaded',len(urls))
-    i=0
     for k in range(4,len(urls)):
         try:
             yt = YouTube(urls[k],use_oauth=True, allow_oauth_cache=True)
             yt = yt.streams.get_highest_resolution()
-            print('File number:',i,'   ','File size:',yt.filesize_mb,'MB','   downloading...')
+            print('File number:',k,'   ','File size:',yt.filesize_mb,'MB','   downloading...')
             yt.download(path)
             print('downloaded file',k)
         except:
