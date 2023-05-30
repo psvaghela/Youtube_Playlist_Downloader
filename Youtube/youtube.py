@@ -25,8 +25,10 @@ def plist(pl_name, pl_url):
 
     time.sleep(10)
     driver.close()
-    print('Items to be downloaded',len(urls))
-    for k in range(4,len(urls)):
+    d = 4
+    print('Items to be downloaded',len(urls)-(d+1))
+    
+    for k in range(d,len(urls)):
         try:
             yt = YouTube(urls[k],use_oauth=True, allow_oauth_cache=True)
             yt = yt.streams.get_highest_resolution()
